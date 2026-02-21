@@ -1,14 +1,13 @@
-:root {
-  --bg-0: #0d0b09;
-  --bg-1: #16120f;
-  --bg-2: #221a14;
-  --earth: #a7682f;
-  --clay: #d7853a;
-  --sand: #f2c995;
-  --ink: #f4eadf;
-  --muted: #c9b8a5;
-  --line: rgba(242, 201, 149, 0.24);
-  --glow: rgba(215, 133, 58, 0.45);
+﻿:root {
+  --paper: #f5f0e7;
+  --paper-2: #efe7db;
+  --ink: #171311;
+  --ink-soft: #3a3029;
+  --clay: #b96a34;
+  --rust: #8f3a1d;
+  --olive: #616142;
+  --glow: rgba(185, 106, 52, 0.34);
+  --line: rgba(23, 19, 17, 0.16);
 }
 
 * {
@@ -19,12 +18,12 @@ html,
 body {
   margin: 0;
   color: var(--ink);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   scroll-behavior: smooth;
   background:
-    radial-gradient(circle at 12% 10%, rgba(167, 104, 47, 0.2), transparent 30%),
-    radial-gradient(circle at 88% 18%, rgba(215, 133, 58, 0.16), transparent 32%),
-    linear-gradient(160deg, var(--bg-0), var(--bg-1) 38%, var(--bg-2));
+    radial-gradient(circle at 8% 11%, rgba(185, 106, 52, 0.14), transparent 32%),
+    radial-gradient(circle at 92% 18%, rgba(143, 58, 29, 0.12), transparent 36%),
+    linear-gradient(165deg, var(--paper), var(--paper-2));
 }
 
 body {
@@ -36,14 +35,15 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
-  opacity: 0.3;
+  pointer-events: none;
+  opacity: 0.24;
   background:
+    linear-gradient(30deg, rgba(255, 255, 255, 0.16) 0%, transparent 30%),
     repeating-linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.03) 0 1px,
-      transparent 1px 18px
+      rgba(23, 19, 17, 0.05) 0 1px,
+      transparent 1px 22px
     );
 }
 
@@ -51,10 +51,10 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
-  opacity: 0.12;
-  background-image: radial-gradient(rgba(255, 238, 214, 0.45) 0.55px, transparent 0.55px);
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: radial-gradient(rgba(23, 19, 17, 0.45) 0.5px, transparent 0.5px);
   background-size: 4px 4px;
 }
 
@@ -77,19 +77,19 @@ main,
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.4rem;
-  background: rgba(12, 10, 8, 0.94);
+  background: rgba(245, 240, 231, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(242, 201, 149, 0.14);
+  border-bottom: 1px solid var(--line);
 }
 
 .wordmark {
   color: var(--ink);
   text-decoration: none;
-  font-size: 0.83rem;
+  font-family: "Syne", sans-serif;
+  font-size: 0.86rem;
   letter-spacing: 0.18em;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  text-shadow: 0 0 18px rgba(215, 133, 58, 0.35);
 }
 
 .site-nav {
@@ -100,7 +100,7 @@ main,
 }
 
 .site-nav a {
-  color: var(--muted);
+  color: var(--ink-soft);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -116,7 +116,7 @@ main,
   bottom: -0.28rem;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, var(--sand), var(--clay));
+  background: linear-gradient(90deg, var(--rust), var(--clay));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.24s ease;
@@ -147,7 +147,7 @@ main,
   fill: none;
   stroke: var(--ink);
   stroke-width: 1.6;
-  opacity: 0.88;
+  opacity: 0.9;
 }
 
 .hero {
@@ -169,13 +169,13 @@ main,
   height: 100%;
   object-fit: cover;
   object-position: 70% center;
-  filter: sepia(0.38) saturate(1.2) contrast(1.18) brightness(0.48);
+  filter: sepia(0.42) saturate(1.14) contrast(1.06) brightness(0.86);
 }
 
 .hero-overlay {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(10, 7, 4, 0.82)),
-    radial-gradient(circle at 40% 42%, rgba(242, 201, 149, 0.15), transparent 45%);
+    linear-gradient(180deg, rgba(245, 240, 231, 0.45), rgba(245, 240, 231, 0.7)),
+    radial-gradient(circle at 38% 42%, rgba(185, 106, 52, 0.2), transparent 46%);
 }
 
 .hero-content {
@@ -183,16 +183,22 @@ main,
   z-index: 1;
   width: min(980px, 92vw);
   text-align: center;
+  padding: 1.8rem 1rem;
+  background: rgba(245, 240, 231, 0.56);
+  border: 1px solid rgba(23, 19, 17, 0.12);
+  box-shadow: 0 18px 60px rgba(23, 19, 17, 0.17);
 }
 
 h1 {
   margin: 0;
+  font-family: "Syne", sans-serif;
   font-size: clamp(2.3rem, 8vw, 6.4rem);
   line-height: 0.9;
   letter-spacing: 0.06em;
   font-weight: 800;
   text-transform: uppercase;
-  text-shadow: 0 0 36px rgba(215, 133, 58, 0.5);
+  color: #120f0d;
+  text-shadow: 0 0 30px rgba(185, 106, 52, 0.22);
 }
 
 .hero-title {
@@ -200,7 +206,7 @@ h1 {
   font-size: clamp(0.85rem, 1.5vw, 1.05rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #e8d8c4;
+  color: #2b231e;
 }
 
 .hero-label {
@@ -208,8 +214,8 @@ h1 {
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.28em;
-  color: var(--sand);
-  font-weight: 500;
+  color: var(--rust);
+  font-weight: 700;
 }
 
 .hero-cta {
@@ -226,25 +232,26 @@ h1 {
   justify-content: center;
   min-height: 42px;
   padding: 0 1.2rem;
-  border: 1px solid rgba(242, 201, 149, 0.42);
+  border: 1px solid rgba(23, 19, 17, 0.42);
   text-decoration: none;
-  color: var(--ink);
+  color: #120f0d;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.64rem;
-  background: rgba(167, 104, 47, 0.14);
-  box-shadow: 0 0 18px rgba(167, 104, 47, 0.26);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 700;
+  background: rgba(185, 106, 52, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(185, 106, 52, 0.2), 0 0 16px var(--glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  border-color: var(--sand);
-  box-shadow: 0 0 26px var(--glow);
+  border-color: rgba(23, 19, 17, 0.6);
+  box-shadow: inset 0 0 0 1px rgba(185, 106, 52, 0.3), 0 0 25px var(--glow);
 }
 
 .btn-alt {
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(97, 97, 66, 0.12);
 }
 
 .hero-icons {
@@ -258,20 +265,20 @@ h1 {
 .hero-icons a {
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(242, 201, 149, 0.4);
+  border: 1px solid rgba(23, 19, 17, 0.35);
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  background: rgba(0, 0, 0, 0.46);
-  box-shadow: inset 0 0 14px rgba(167, 104, 47, 0.25);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 14px rgba(185, 106, 52, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .hero-icons a:hover {
-  border-color: var(--sand);
-  box-shadow: 0 0 22px rgba(215, 133, 58, 0.38);
+  border-color: rgba(23, 19, 17, 0.65);
+  box-shadow: 0 0 22px rgba(185, 106, 52, 0.35);
   transform: translateY(-2px);
 }
 
@@ -285,13 +292,13 @@ h1 {
 .content-section {
   padding: clamp(3.8rem, 8vw, 6.8rem) 1.2rem;
   background:
-    linear-gradient(160deg, rgba(24, 18, 13, 0.95), rgba(15, 12, 10, 0.98));
-  border-top: 1px solid rgba(242, 201, 149, 0.08);
+    linear-gradient(160deg, rgba(245, 240, 231, 0.9), rgba(239, 231, 219, 0.98));
+  border-top: 1px solid rgba(23, 19, 17, 0.08);
 }
 
 .content-section:nth-of-type(even) {
   background:
-    linear-gradient(160deg, rgba(31, 23, 16, 0.95), rgba(18, 14, 11, 0.98));
+    linear-gradient(160deg, rgba(238, 228, 214, 0.92), rgba(247, 242, 235, 0.98));
 }
 
 .content-section > * {
@@ -305,22 +312,24 @@ h1 {
   font-size: 0.66rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sand);
+  color: var(--rust);
+  font-weight: 700;
 }
 
 h2 {
   margin: 0;
+  font-family: "Syne", sans-serif;
   font-size: clamp(1.3rem, 4.1vw, 3rem);
   line-height: 1.05;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #fff6ea;
+  color: #15110f;
 }
 
 .content-section p,
 .content-section li {
-  color: #e3d5c4;
-  font-weight: 300;
+  color: #2f2722;
+  font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.8;
   font-size: clamp(0.92rem, 1.3vw, 1.02rem);
@@ -335,8 +344,8 @@ h2 {
 .site-footer {
   padding: 3.3rem 1.2rem 4.2rem;
   text-align: center;
-  border-top: 1px solid rgba(242, 201, 149, 0.16);
-  background: #0b0806;
+  border-top: 1px solid rgba(23, 19, 17, 0.14);
+  background: #e8ddd0;
 }
 
 .site-footer p {
@@ -345,7 +354,7 @@ h2 {
   letter-spacing: 0.2em;
   line-height: 2;
   text-transform: uppercase;
-  color: #f2e3cf;
+  color: #211a16;
 }
 
 .footer-icons {
