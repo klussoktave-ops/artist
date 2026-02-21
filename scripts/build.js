@@ -4,6 +4,7 @@ const path = require("path");
 const root = process.cwd();
 const outDir = path.join(root, "public");
 const filesToCopy = ["index.html", "styles.css", "script.js"];
+const directoriesToCopy = ["images"];
 
 if (fs.existsSync(outDir)) {
   fs.rmSync(outDir, { recursive: true, force: true });
@@ -20,6 +21,15 @@ for (const file of filesToCopy) {
   }
 
   fs.copyFileSync(source, destination);
+}
+
+for (const dir of directoriesToCopy) {
+  const sourceDir = path.join(root, dir);
+  const destinationDir = path.join(outDir, dir);
+
+  if (fs.existsSync(sourceDir)) {
+    fs.cpSync(sourceDir, destinationDir, { recursive: true });
+  }
 }
 
 console.log("Build complete. Static files generated in /public.");
