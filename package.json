@@ -1,12 +1,16 @@
 {
   "name": "artist",
   "version": "1.0.0",
-  "description": "",
+  "description": "Oktave Kluss premium editorial homepage",
+  "private": true,
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "serve . -l 3000",
+    "start": "serve . -l 3000",
+    "build": "echo \"Static site build: no compilation required\""
+  },
+  "devDependencies": {
+    "serve": "^14.2.5"
   }
 }
